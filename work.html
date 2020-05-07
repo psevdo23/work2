@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="description"
+          content="Мы создаем контент и обеспечиваем коммуникацию с аудиторией в любой вещательной среде. Сборка  и выпуск телеканалов, производство промо, создание трансляций и виртуальных мероприятий, имиджевые и продающие ролики, анализ аудитории и вовлеченности зрителей.">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Пайк Медиа Лаб| Производство телеканалов, трансляций, телемостов и контента</title>
+    <script src="js/jquery-3.5.0.js"></script>
+    <script src="js/jquery.spincrement.js"></script>
+    <script src="js/gsap.js"></script>
+    <script src="js/CSSRulePlugin.js"></script>
+    <script src="js/MotionPathPlugin.js"></script>
+    <script src="js/TextPlugin.js"></script>
+    <script src="js/ScrollMagic.js"></script>
+    <script src="js/debug.addIndicators.js"></script>
+    <script src="js/animation.gsap.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script>history.scrollRestoration = "manual"</script>
+    <script src="js/js.js"></script>
+</head>
+<body>
+<div class="appWrapper">
+    <nav class="navigation">
+        <div class="logoFish">
+            <div class="relative">
+                <div class="firstLayer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 47">
+                        <path fill="#00DA00" fill-rule="evenodd"
+                              d="M23.333 23.394L.01 46.718h12.465l23.324-23.324L12.474.07 0 .06z"></path>
+                    </svg>
+                </div>
+                <div class="secondLayer">
+                    <div class="secondLayerContent">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 48">
+                            <path fill="#00DA00" fill-rule="evenodd" d="M.011 0v47.121l23.561-23.56z"></path>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122 42">
+                            <g fill-rule="evenodd">
+                                <path d="M16.372 6.743H6.528v14.483h9.844c1.999 0 3.705-.692 5.12-2.078 1.414-1.386 2.122-3.103 2.122-5.15 0-2.045-.708-3.766-2.122-5.161-1.415-1.395-3.121-2.094-5.12-2.094zM.162.943h16.21c3.866 0 7.104 1.27 9.717 3.805 2.61 2.537 3.917 5.62 3.917 9.25s-1.306 6.71-3.917 9.237c-2.613 2.527-5.851 3.79-9.717 3.79H6.528v14.484H.163V.944zM38.553 41.508h6.365V.944h-6.365zM99.024 35.71h22.884v5.799H92.66V.944h28.683v5.799H99.024v10.72h17.68v5.8h-17.68zM85.94.944l-7.71.008L65 17.76h-2.734V.944h-6.364v40.565h6.364V24.693h2.727L78.23 41.508h7.703L69.97 21.23z"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <div class="thirdLayer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125 11">
+                        <g fill-rule="evenodd">
+                            <path d="M10.043.072L5.916 5.485 1.788.072H.865v9.965h1.07v-8.11l3.981 5.26 3.988-5.26v8.11h1.063V.072zM21.305.072v9.966h6.976v-.995h-5.906V5.34h4.621v-.993h-4.621V1.073h5.759V.073zM40.727 1.073h-2.063v7.97h2.063c1.167 0 2.147-.386 2.94-1.16.792-.774 1.188-1.715 1.188-2.825s-.396-2.05-1.189-2.825c-.792-.773-1.772-1.16-2.939-1.16zM37.593.072h3.134c1.45 0 2.678.489 3.683 1.467 1.005.977 1.508 2.149 1.508 3.515 0 1.367-.503 2.54-1.508 3.517-1.005.978-2.233 1.466-3.683 1.466h-3.134V.072zM55.615 10.037h1.07V.072h-1.07zM72.4 6.264l-1.918-4.698-1.924 4.698H72.4zm.431 1h-4.698l-1.139 2.773h-1.14L69.982.072h.993l4.128 9.965H73.97l-1.139-2.772zM90.465 10.037h-6.191V.072h1.07v8.97h5.12zM105.58 6.264l-1.917-4.698-1.925 4.698h3.842zm.43 1h-4.696l-1.14 2.773h-1.14l4.128-9.965h.994l4.127 9.965h-1.132l-1.14-2.772zM118.524 9.043h2.987c.598 0 1.078-.174 1.443-.52.363-.349.545-.793.545-1.335 0-.552-.184-1.02-.553-1.407-.368-.387-.847-.58-1.435-.58h-2.987v3.842zm2.771-7.97h-2.77v3.19h2.77c.534 0 .952-.145 1.255-.435.304-.289.454-.686.454-1.192 0-.463-.15-.839-.454-1.129-.303-.289-.72-.434-1.255-.434zm1.641 3.627c.046.018.105.045.174.077.068.032.198.12.39.264.19.143.355.301.5.472.142.172.274.41.391.712.118.303.178.625.178.963 0 .824-.283 1.505-.848 2.042-.565.538-1.3.807-2.21.807h-4.057V.072h3.841c.807 0 1.47.247 1.993.74.52.494.781 1.102.781 1.824 0 .292-.037.562-.11.81-.077.248-.17.446-.288.594a3.021 3.021 0 0 1-.342.38 1.34 1.34 0 0 1-.283.21l-.11.07z"></path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="headerDescription">
+            <div>
+                Создаем телевещание в любой среде. Технологические услуги по подготовке и распространению для
+                телеканалов
+                и операторов VOD
+            </div>
+        </div>
+        <div class="mobil__button"><a href="#connect"></a></div>
+        <div class="button">
+            <div><a href="#connect">СВЯЗАТЬСЯ С НАМИ</a></div>
+        </div>
+
+    </nav>
+    <div class="first slide">
+        <div class="">
+            <div class="pris">
+                <div class="shtora"></div>
+                <div class="shtora2"></div>
+                <img class="video1__img" src="images/1920-main-bgd.jpg">
+                <video height="100vh" width="100vw" autoplay="auto" muted="auto" loop="auto"
+                       preload="auto" playsinline="auto" class="video1">
+                    <source src="./video/Presentacia_1_hq.mp4" type="video/mp4">
+                </video>
+                <div class="movingLogo">
+                    <div class="pike"></div>
+                    <div class="medialab">
+                        <div class="medialab1"></div>
+                        <div class="medialab2">
+                            <div class="media1"></div>
+                            <div class="lab1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg__color">
+        <div class="">
+            <div class="two slide">
+                <div class="margin">
+                    <div class="lis__advantages">
+                        <div class="clock">
+                            <div class="figures number">10 000</div>
+                            <div class="litters">Часов контента мы <br> обрабатываем ежедневно</div>
+                        </div>
+                        <div class="confidence">
+                            <div class="figures number">20</div>
+                            <div class="litters">Телеканалов доверяют <br> нам эфирную подготовку</div>
+                        </div>
+                        <div class="release">
+                            <div class="figures number">50</div>
+                            <div class="litters">Телеканалов впускаются <br> в эфирном комплексе</div>
+                        </div>
+                        <div class="awards">
+                            <div class="figures number">20</div>
+                            <div class="litters">Наград МедиаБренд <br> и Promax за работы <br> в промо</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="control__client">
+                            <div class="client">Клиенты<span>.</span></div>
+                            <div class="control">
+                                <div id="two__previous" class="previous"></div>
+                                <div id="two__next" class="next"></div>
+                            </div>
+                        </div>
+                        <div class="clients__list ">
+                            <div class="grin zvezda">
+                                <div class="top__text">Телеканал <br> &laquo;Звезда&raquo;</div>
+                                <div class="flex ">
+                                    <div class="bottom__text">Цифровой архив <br> медиа
+                                    </div>
+                                    <div class="bottom__img "></div>
+                                </div>
+                            </div>
+                            <div class="white media">
+                                <div class="top__text">0+ Media</div>
+                                <div class="flex ">
+                                    <div class="bottom__text">Полный технологческий <br> циклсборки телеканалов <br>
+                                        Создание промо
+                                    </div>
+                                    <div class="bottom__img"></div>
+                                </div>
+                            </div>
+                            <div class="grin vgtrk">
+                                <div class="top__text">Цифровое <br> телевидение <br> ВГТРК</div>
+                                <div class="flex">
+                                    <div class="bottom__text">Полный технологический <br> цикол сборки телеканалов <br>
+                                        Медиаарфив
+                                        <br> Создание промо <br>Техничекий сервис <br> Выпуск телеканалов в США
+                                    </div>
+                                    <div class="bottom__img"></div>
+                                </div>
+                            </div>
+                            <div class="white ws">
+                                <div class="top__text">Компания <br> &laquo;Первый кана. <br> Всемирная сеть&raquo;
+                                </div>
+                                <div class="flex">
+                                    <div class="bottom__text">Технологический сервис <br> замены рекламных блоков
+                                    </div>
+                                    <div class="bottom__img"></div>
+                                </div>
+                            </div>
+                            <div class="grin strim">
+                                <div class="top__text">Телекомпания <br> Стрим</div>
+                                <div class="flex">
+                                    <div class="bottom__text">Техническая поддержка <br> выпуска телеканалов <br> группы
+                                    </div>
+                                    <div class="bottom__img"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tree__work__zone">
+                <div class="three  margin">
+                    <div class="tree__size">
+                        <div class="tree_flex">
+                            <div class="tree__img"></div>
+                            <div class="tree__inf">
+                                <div class="tree_text">
+                                    МедиаХаб<span>. Конструктор технологических медиауслуг</span></div>
+                                <ul type="square">
+                                    <li>Прием контента и оценка технического качества</li>
+                                    <li>Предэфирная подготовка и транскодирование контента</li>
+                                    <li>Перспективное и текущее планирование эфира</li>
+                                    <li>Управление рекламным трафиком</li>
+                                    <li>Архивирование эфирного контента</li>
+                                    <li>Отчетность для рекламодателей и правообладателей</li>
+                                    <li>Подготовка пакетов контента и расписаний для VOD</li>
+                                    <li>Мультиязычная локализация контента</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four margin">
+                    <div class="spinning__logo__min">
+                        <div class="min__img"></div>
+                        <div class="min__text">Интеграционный проект медиаархива номинирован на соискание премии
+                            Зворыкина Национальной ассоциации телевещателей
+                        </div>
+                    </div>
+                    <div class="spinning__logo">
+                        <div class="mobil__logo"> Интеграционный проект медиаархива номинирован на соискание премии
+                            Зворыкина Национальной ассоциации телевещателей
+                        </div>
+                        <div class="spinning four__spinning"></div>
+                        <div class="logo__min"></div>
+                    </div>
+                    <div class="four__img"></div>
+                    <div class="four__text">
+                        <div>Цифровой
+                            архив<span>. Smart архивирование и надежное хранение исходных
+                                медиа- материалов</span></div>
+                        <ul type="square" class="four_ul">
+                            <li>Координация приема и выдачи контента</li>
+                            <li>Оценка технического качества</li>
+                            <li>Емкость библиотеки 2,5 Петабайта</li>
+                            <li>Пакетирование и цифровая доставка контента</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="five margin">
+                    <div class="five__img"></div>
+                    <div class="five_text">
+                        <div>Создание и доставка сигнала<span>. Выпуск, наземная и спутниковая доставка сигнала
+                            телеканалов</span></div>
+                        <ul type="square">
+                            <li>Мониторинг 24х7х365 в эфирной аппаратной</li>
+                            <li>Эфирный комплекс в России и США</li>
+                            <li>Выпуск телеканалов, мониторинг и технический <br> контроль 24х7</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="six margin">
+                    <div class="spinning__logo__min">
+                        <div class="min__img"></div>
+                        <div class="min__text">Интеграционный проект медиаархива номинирован на соискание премии
+                            Зворыкина Национальной ассоциации телевещателей
+                        </div>
+                    </div>
+                    <div class="spinning__logo">
+                        <div class="mobil__logo"> Интеграционный проект медиаархива номинирован на соискание премии
+                            Зворыкина Национальной ассоциации телевещателей
+                        </div>
+                        <div class="spinning six__spinning"></div>
+                        <div class="logo__min"></div>
+                    </div>
+                    <div class="six__img"></div>
+                    <div class="six__text">
+                        <div>Создание промо. <span>Разработка <br> фирменного
+                            стиля <br> и промокампаний телеканалов</span>
+                        </div>
+                        <ul type="square">
+                            <li>Создание брендбуков телеканалов и отдельных элементов оформления</li>
+                            <li>Производство монтажных и постановочных промороликов</li>
+                            <li>Производство внеэфирных промоматериалов</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="seven">
+                    <img class="video2__img" src="./images/banner-bg.jpg" alt="">
+                    <video onclick="location.href='http://red-is.ru';" height="100vh" width="100vw" autoplay="auto"
+                           muted="auto" loop="auto"
+                           preload="auto" playsinline="auto" class="video2">
+                        <source src="./video/Presentacia_2_hq.mp4" type="video/mp4">
+                    </video>
+                    <div class="seven__logo"></div>
+                    <div class="seven__text">
+                        <div class="seven__text1">Съемки<span>.</span></div>
+                        <div class="seven__text2">Трансляции<span>.</span></div>
+                        <div class="seven__text3">Монетизация<span>.</span></div>
+                    </div>
+                </div>
+                <div class="eight ">
+                    <div class="eight__text">Интеграция</div>
+                    <div class="eight1">
+                        <ul type="square">
+                            <li>Разработка технических заданий, проектный менеджмент и аудит технологических решений
+                            </li>
+                        </ul>
+                        <div class="square__mobil">
+                            <ul>
+                                <li>Внедрение систем менеджмента производства/управления проектами</li>
+                                <li>Разработка технологических циклов телевизионного производства/производства
+                                    контента
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="eight2">
+                        <ul type="square">
+                            <li>Внедрение систем менеджмента производства/управления проектами</li>
+                        </ul>
+                    </div>
+                    <div class="eight3">
+                        <ul type="square">
+                            <li>Разработка технологических циклов телевизионного производства/производства контента</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nine">
+            <img class="video3__img" src="./images/Integration_bg.jpg" alt="">
+            <video height="100vh" width="100vw" autoplay="auto" muted="auto" loop="auto"
+                   preload="auto" playsinline="auto" class="video3">
+                <source src="./video/Presentacia_3_hq.mp4" type="video/mp4">
+            </video>
+            <div class="control__integration">
+                <div class="integration__exp">Наш опыт интеграции<span>.</span></div>
+                <div class="control2">
+                    <div id="nine__previous" class="previous__nine"></div>
+                    <div id="nine__next" class="next__nine"></div>
+                </div>
+                <div class="integration ">
+                    <div class="grin ">
+                        <div class="top__text">Создание эфирной аппаратной на 90 телеканалов</div>
+                        <div class="bottom__text">/ 2018</div>
+                    </div>
+                    <div class="white">
+                        <div class="top__text">Создание эфирного комплекса телеканалов на технологии IPuncompressed
+                            SAM-Grass Valley
+                        </div>
+                        <div class="bottom__text">/ 21 телеканал / 2018
+                        </div>
+                    </div>
+                    <div class="grin">
+                        <div class="top__text">Разработка проекта облачного выпуска и доставки телеканала на территории
+                            США К
+                        </div>
+                        <div class="bottom__text">/ 2017–2018
+                        </div>
+                    </div>
+                    <div class="white">
+                        <div class="top__text">Перед просмотром кода лучше выпить успокоительного
+                        </div>
+                        <div class="bottom__text">А лучше повторить первое действие несколько раз
+                        </div>
+                    </div>
+                    <div class="grin">
+                        <div class="top__text">Тут могло чтото быть
+                            <div class="bottom__text">И тут тоже
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="ten">
+        <div class="ten__content"><a name="connect"></a>
+            <div class="ten__text">Разработаем <br> решение под ваши задачи<span>.</span></div>
+            <div class="ten__bottom__text">
+                <div class="ten__text__min">Возникли вопросы или хотите оценить <br> стоимость проекта?
+                    Оставьте заявку и наш менеджер с вами свяжется.
+                </div>
+                <form>
+                    <div class="name"><input class="input" name="name" type="text" placeholder="Ваше имя"></div>
+                    <div class="phon"><input class="input" id="phone" name="phone" type="text" placeholder="Телефон">
+                    </div>
+                    <div class="email"><input class="input" name="email" type="email" placeholder="Email"></div>
+                    <div class="massege"><textarea class="input" name="message" placeholder="Сообщение"
+                                                   style="overflow: hidden; overflow-wrap: break-word; height: 53px;"></textarea>
+                    </div>
+                    <button class="button__form" type="submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer__logo"></div>
+        <div class="footer_text">+7 499 322 29 71 <br> hello@pikemedia.ru <br> 115162, Москва, ул. Шухова, 14</div>
+        <div class="messagers">
+            <div class="messagers__item">
+                <div class="vk" onclick="location.href='http://red-is.ru';"></div>
+                <div class="fb" onclick="location.href='http://red-is.ru';"></div>
+                <div class="instogram" onclick="location.href='http://red-is.ru';"></div>
+                <div class="ok" onclick="location.href='http://red-is.ru';"></div>
+                <div class="tvitr" onclick="location.href='http://red-is.ru';"></div>
+                <div class="sw" onclick="location.href='http://red-is.ru';"></div>
+                <div class="youtube" onclick="location.href='http://red-is.ru';"></div>
+            </div>
+            <div class="redis"><span onclick="location.href='http://red-is.ru';">Redis</span> — создание сайта</div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
